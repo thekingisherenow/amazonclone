@@ -16,15 +16,13 @@ function Product({ id, price, description, category, title , image , rating }) {
   return (
     <div className=' relative bg-white z-30 m-5 p-10 flex flex-col  '>
       <p className='absolute top-2 right-2 text-xs text-gray-400 italic'>{category}</p>
-      <div className='relative h-52 w-40  mx-auto'>
-      <Image  src={image} fill className="object-contain items-center mx-auto"   alt=""/>
-      </div>
+      <Image id={id} src={image}  className="object-contain h-50  items-center mx-auto"   alt=""/>
       <h4 className='my-3'>{title}</h4>
 
 <div className='flex'>
   {Array(rate).fill().map((_,i)=>{
     return(
-      <StarIcon key={id} className='h-5 w-5 text-yellow-500'/>
+      <StarIcon  className='h-5 w-5 text-yellow-500'/>
     )
   })}
 

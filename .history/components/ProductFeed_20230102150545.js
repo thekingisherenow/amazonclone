@@ -5,14 +5,14 @@ function ProductFeed({products}) {
    console.log("this is product feed",products)
   return (
     <>
-    <div className='grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 -mt-52 mx-auto'>
+    <div className='grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52'>
         {products.slice(0,4).map((product,i) =>
         (
           <Product key ={product.id} id={product.id} price={product.price} description={product.description} category={product.category} title = {product.title} image = {product.image} rating = {product.rating} />
           ))
         }
     
-    <div className='col-span-2 md:col-span-full'> 
+    <div className='col-span-1 md:col-span-full'> 
       <img src="https://links.papareact.com/dyz" />
     </div>
 
