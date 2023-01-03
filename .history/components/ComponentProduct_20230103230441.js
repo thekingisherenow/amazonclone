@@ -19,7 +19,7 @@ function ComponentProduct({ id, price, description, category, title, image, rati
                 <div className='flex'>
                     {Array(rate).fill().map((_, i) => {
                         return (
-                            <StarIcon key={i} className='h-5 w-5 text-yellow-500' />
+                            <StarIcon key={id} className='h-5 w-5 text-yellow-500' />
                         )
                     })}
                 </div>
