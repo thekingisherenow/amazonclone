@@ -25,7 +25,7 @@ function Header() {
             className='cursor-pointer mt-4 px-4 ' />
         </div>
 
-        <div className='hidden sm:inline-flex items-center text-sm  hover:border-2 border-white  w-30 mr-2 h-full '>
+        <div className='hidden md:inline-flex flex items-center text-sm  hover:border-2 border-white  w-30 mr-2 h-full '>
           <MapPinIcon className='w-7 h-5 ml-2 mt-2 text-white' />
           <div className='flex-col items-center justify-center' >
             <h1 className='text-gray-200 text-xs'>Deliver to</h1>
@@ -34,7 +34,7 @@ function Header() {
         </div>
         {/* SEARCH  */}
 
-        <div className='hidden md:inline-flex m-1 mt-3  bg-white rounded-full flex-grow h-10'>
+        <div className=' m-1 mt-3  bg-white rounded-full flex-grow h-10'>
 
           <input className='p-2 h-full flex-grow bg-white rounded-l-md  focus:outline-none px-4' type="text" />
 
@@ -48,7 +48,7 @@ function Header() {
           {/* //SIGN IN -LAPTOP. */}
           <div 
             onMouseEnter={() => setSigninOpen(true)} onMouseLeave={() => setSigninOpen(false)}
-            className=' link  flex-col p-2 relative '>
+            className='hidden sm:inline-flex link  flex-col p-2 relative '>
             {session ? <p>Hello,{session.user.name} </p> : <p>Hello,sign in</p>}
             <span className='flex items-center '>
               <p className='font-bold md:text-sm'>Accounts & Lists</p>
