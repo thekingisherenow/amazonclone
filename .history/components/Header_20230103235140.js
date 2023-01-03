@@ -27,8 +27,7 @@ function Header() {
               className='cursor-pointer mt-4 px-4 ' />
           </div>
           <div className='flex lg:hidden justify-end items-center text-white  ml-auto '>
-            <div onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/' })}
-            className='flex h-10 items-center cursor-pointer'>
+            <div className='flex h-10 items-center cursor-pointer'>
                 <p className='text-sm'>Sign in</p>
                 <ChevronRightIcon className='w-2 h-3 mt-1'/>
                 <UserIcon className='w-7 h-7' />

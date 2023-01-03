@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { MapPinIcon, MagnifyingGlassIcon, ChevronDownIcon, ShoppingCartIcon, Bars3Icon, UserIcon } from '@heroicons/react/24/outline'
+import { MapPinIcon, MagnifyingGlassIcon, ChevronDownIcon, ShoppingCartIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { selectItems } from '../slices/basketSlice'
-import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 function Header() {
   const { data: session } = useSession()
@@ -17,7 +16,7 @@ function Header() {
     <div>
       {/* TOP NAV */}
       <div className='bg-amazon flex flex-col md:flex-row '>
-        <div className='flex'>
+        <div>
 
           {/* FAVICON */}
           <div onClick={() => router.push('/')}
@@ -26,18 +25,14 @@ function Header() {
               width={140} height={30} alt=""
               className='cursor-pointer mt-4 px-4 ' />
           </div>
-          <div className='flex lg:hidden justify-end items-center text-white  ml-auto '>
-            <div onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/' })}
-            className='flex h-10 items-center cursor-pointer'>
-                <p className='text-sm'>Sign in</p>
-                <ChevronRightIcon className='w-2 h-3 mt-1'/>
-                <UserIcon className='w-7 h-7' />
-            </div>
+          <div className='flex lg:hidden'>
+            <div>
 
+            </div>
             <div onClick={() => router.push('checkout')}
-            className='cursor-pointer flex  p-2 items-center mr-2 ml-1'>
+            className='link flex  p-2 items-center mr-2'>
             <div className='relative'>
-              <ShoppingCartIcon className='w-10 h-10 text-white items-center' />
+              <ShoppingCartIcon className='w-10 h-10 items-center' />
               <span className='absolute top-[1px] right-[5px] bg-black text-orange-500 font-bold text-md rounded-full h-3 w-3 flex justify-center items-center p-3' >{items.length}</span>
             </div>
           </div>

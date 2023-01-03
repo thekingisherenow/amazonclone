@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { MapPinIcon, MagnifyingGlassIcon, ChevronDownIcon, ShoppingCartIcon, Bars3Icon, UserIcon } from '@heroicons/react/24/outline'
+import { MapPinIcon, MagnifyingGlassIcon, ChevronDownIcon, ShoppingCartIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { selectItems } from '../slices/basketSlice'
-import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 function Header() {
   const { data: session } = useSession()
@@ -16,36 +15,17 @@ function Header() {
   return (
     <div>
       {/* TOP NAV */}
-      <div className='bg-amazon flex flex-col md:flex-row '>
-        <div className='flex'>
+      <div className='bg-amazon flex flex-col lg:flex-row '>
 
-          {/* FAVICON */}
-          <div onClick={() => router.push('/')}
-            className='hover:border-2 border-white flex-shrink-0 '>
-            <Image src="https://links.papareact.com/f90"
-              width={140} height={30} alt=""
-              className='cursor-pointer mt-4 px-4 ' />
-          </div>
-          <div className='flex lg:hidden justify-end items-center text-white  ml-auto '>
-            <div onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/' })}
-            className='flex h-10 items-center cursor-pointer'>
-                <p className='text-sm'>Sign in</p>
-                <ChevronRightIcon className='w-2 h-3 mt-1'/>
-                <UserIcon className='w-7 h-7' />
-            </div>
-
-            <div onClick={() => router.push('checkout')}
-            className='cursor-pointer flex  p-2 items-center mr-2 ml-1'>
-            <div className='relative'>
-              <ShoppingCartIcon className='w-10 h-10 text-white items-center' />
-              <span className='absolute top-[1px] right-[5px] bg-black text-orange-500 font-bold text-md rounded-full h-3 w-3 flex justify-center items-center p-3' >{items.length}</span>
-            </div>
-          </div>
-
-          </div>
+        {/* FAVICON */}
+        <div onClick={()=>router.push('/')}
+         className='hover:border-2 border-white flex-shrink-0 '>
+          <Image src="https://links.papareact.com/f90"
+            width={140} height={30} alt=""
+            className='cursor-pointer mt-4 px-4 ' />
         </div>
 
-        <div className='hidden md:inline-flex items-center text-sm  hover:border-2 border-white  w-30 mr-2 h-full '>
+        <div className='hidden lg:inline-flex items-center text-sm  hover:border-2 border-white  w-30 mr-2 h-full '>
           <MapPinIcon className='w-7 h-5 ml-2 mt-2 text-white' />
           <div className='flex-col items-center justify-center' >
             <h1 className='text-gray-200 text-xs'>Deliver to</h1>
@@ -54,20 +34,19 @@ function Header() {
         </div>
         {/* SEARCH  */}
 
-        <div className='flex m-1 mt-3  bg-white rounded-full flex-grow h-10'>
+        <div className='hidden md:inline-flex m-1 mt-3  bg-white rounded-full flex-grow h-10'>
 
-          <input placeholder='Search Amazon'
-            className='p-2 h-full flex-grow bg-white rounded-l-md  focus:outline-none px-4' type="text" />
+          <input className='p-2 h-full flex-grow bg-white rounded-l-md  focus:outline-none px-4' type="text" />
 
           <MagnifyingGlassIcon className=' h-10 text-xs p-2  bg-orange-300 rounded-r-md w-10 items-center  ' />
         </div>
 
         {/* RIGHT PART */}
 
-        <div className='hidden md:inline-flex justify-end ml-auto text-sm items-center text-white space-x-1 whitespace-nowrap mr-3'>
+        <div className='flex justify-end ml-auto text-sm items-center text-white space-x-1 whitespace-nowrap mr-3'>
 
           {/* //SIGN IN -LAPTOP. */}
-          <div
+          <div 
             onMouseEnter={() => setSigninOpen(true)} onMouseLeave={() => setSigninOpen(false)}
             className=' link  flex-col p-2 relative '>
             {session ? <p>Hello,{session.user.name} </p> : <p>Hello,sign in</p>}
@@ -81,18 +60,18 @@ function Header() {
             '>
               <div className='flex flex-col'>
                 <div className='col-span-2 text-center h-12 p-5 '>
-                  {!session ?
-                    <>
-                      <button onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/' })}
-                        className='button' >Sign in</button>
-                      <div className='flex'>
-                        <p>New customer?</p>
-                        <p>Sign in</p>
-                      </div>
-                    </> :
-                    <button onClick={() => signOut()}
-                      className='button' >Sign Out</button>
-                  }
+                  {!session?
+                  <>
+                  <button onClick={()=>signIn('google', { callbackUrl: 'http://localhost:3000/'})}
+                   className='button' >Sign in</button>
+                  <div className='flex'>
+                    <p>New customer?</p>
+                    <p>Sign in</p>
+                  </div>
+                  </>: 
+                  <button onClick={() =>signOut()}
+                   className='button' >Sign Out</button>
+                }
                 </div>
 
                 <div className='flex'>
@@ -124,7 +103,7 @@ function Header() {
               </div>
             </div>}
           </div>
-
+          
           <div className='hidden sm:inline-flex link  flex-col p-2 '>
             <p>Returns</p>
 
@@ -132,13 +111,13 @@ function Header() {
 
           </div>
 
-          <div onClick={() => router.push('checkout')}
-            className='link flex  p-2 items-center mr-2'>
+          <div onClick={()=>router.push('checkout')}
+           className='link flex  p-2 items-center mr-2'>
             <div className='relative'>
               <ShoppingCartIcon className='w-10 h-10 items-center' />
               <span className='absolute top-[1px] right-[5px] bg-black text-orange-500 font-bold text-md rounded-full h-3 w-3 flex justify-center items-center p-3' >{items.length}</span>
             </div>
-            <p className='font-bold md:text-sm hidden lg:inline-flex'>Cart</p>
+            <p className='font-bold md:text-sm hidden sm:inline-flex'>Cart</p>
           </div>
         </div>
       </div>

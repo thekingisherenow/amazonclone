@@ -26,16 +26,15 @@ function Header() {
               width={140} height={30} alt=""
               className='cursor-pointer mt-4 px-4 ' />
           </div>
-          <div className='flex lg:hidden justify-end items-center text-white  ml-auto '>
-            <div onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/' })}
-            className='flex h-10 items-center cursor-pointer'>
-                <p className='text-sm'>Sign in</p>
-                <ChevronRightIcon className='w-2 h-3 mt-1'/>
-                <UserIcon className='w-7 h-7' />
+          <div className='flex lg:hidden justify-end text-white items-center ml-auto'>
+            <div className='flex'>
+                <p className='text-xs'>Sign in</p>
+                <ChevronRightIcon className='w-2 h-2 items-center ml-1 mt-2'/>
+                <UserIcon className='w-5 h-5' />
             </div>
 
             <div onClick={() => router.push('checkout')}
-            className='cursor-pointer flex  p-2 items-center mr-2 ml-1'>
+            className='link flex  p-2 items-center mr-2'>
             <div className='relative'>
               <ShoppingCartIcon className='w-10 h-10 text-white items-center' />
               <span className='absolute top-[1px] right-[5px] bg-black text-orange-500 font-bold text-md rounded-full h-3 w-3 flex justify-center items-center p-3' >{items.length}</span>
