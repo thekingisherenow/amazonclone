@@ -1,10 +1,11 @@
 import { StarIcon } from '@heroicons/react/24/solid';
 import React, { useEffect, useState } from 'react'
 
-function ComponentProduct({ id, price, description, category, title, image, rating }) {
+function CheckoutProduct({ id, price, description, category, title, image, rating }) {
     console.log("the rating is ", rating)
     const rate = Math.round(rating.rate);
     const [hasPrime, setHasPrime] = useState(false)
+    
     useEffect(() => {
         setHasPrime(Math.random() < 0.5)
     }, [])
@@ -32,12 +33,12 @@ function ComponentProduct({ id, price, description, category, title, image, rati
                     <p className='text-xs text-gray-500 '>Free Next-day delivery</p>
                 </div>}
             </div>
-            <div className='col-span-1 flex flex-col'>
-                <button className='button m-1 text-xs' >Add to Basket</button>
-                <button className='button m-1 text-xs'>Remove from Basket</button>
+            <div className='col-span-1 flex flex-col space-y-2 my-auto justify-end'>
+                <button className='button  text-xs' >Add to Basket</button>
+                <button className='button  text-xs'>Remove from Basket</button>
             </div>
         </div>
     )
 }
 
-export default ComponentProduct
+export default CheckoutProduct

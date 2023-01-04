@@ -3,14 +3,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import CheckoutProduct from '../components/CheckoutProduct'
 import Header from '../components/Header'
-import { selectItems, selectTotal } from '../slices/basketSlice'
-import CurrencyFormat from 'react-currency-format';
-import { useSession } from 'next-auth/react'
+import { selectItems } from '../slices/basketSlice'
 
 function Checkout() {
-    const { data: session } = useSession()
     const items = useSelector(selectItems)
-    const total = useSelector(selectTotal);
 
 
     return (
@@ -53,18 +49,13 @@ function Checkout() {
                 </div>
 
                 {/* right */}
-                <div className='flex flex-col bg-white p-4 shadow-md space-y-2'>
-                    {items.length>1 && 
-                    <div className='my-2'>
-                    <p>Subtotal ({items.length} items) : </p>
-                    <CurrencyFormat className='font-bold' value ={total} prefix={'$'} decimalScale={2} displayType={"text"} />
+                <div className='flex flex-col space-y-2'>
+                    <div className='flex'>
+
+                    <p>Subtotal (2 items) : </p>
+                    <h1 className='font-bold'> $ 70</h1>
                     </div>
-                    }
-
-
-                    <button disabled={!session}
-                    className= {`button mt-2 ${!session && "from-gray-700 to-gray-400 w-52  cursor-not-allowed text-white border-gray-500"} `}>
-                       {!session? "Sign in to Checkout":"Proceed to Checkout"} </button>
+                    <button className='p-2 text-white bg-gradient-to-t from-gray-700 to-gray-400 w-40 ' >Sign in to Checkout</button>
                 </div>
             </main>
         </div>

@@ -24,11 +24,10 @@ function Product({ id, price, description, category, title , image , rating }) {
   
 
   return (
-    <div className=' relative bg-white z-30 m-5 p-10 flex flex-col shadow-lg '>
+    <div className=' relative bg-white z-30 m-5 p-10 flex flex-col  '>
       <p className='absolute top-2 right-2 text-xs text-gray-400 italic'>{category}</p>
-      <div className='relative h-52 w-40 object-contain mx-auto'>
-      <Image 
-      src={image}  className="object-contain items-center mx-auto" fill loading='lazy'  alt=""/>
+      <div className='relative h-52 w-40  mx-auto'>
+      <Image  src={image} fill className="object-contain items-center mx-auto"   alt=""/>
       </div>
       <h4 className='my-3'>{title}</h4>
 
@@ -41,9 +40,9 @@ function Product({ id, price, description, category, title , image , rating }) {
 
  </div> 
 <p className='text-xs my-2 line-clamp-2'>{description}</p>
-<CurrencyFormat className='my-3' value ={price} prefix={'$ '} displayType={"text"} />
+<CurrencyFormat className='my-5' value ={price} prefix={'$'} />
 
- {hasPrime && <div className='flex items-center -mt-2 space-x-2 '>
+ {hasPrime && <div className='flex items-center -mt-5 space-x-2 '>
   <img className='object-contain w-12 ' 
   id={id} src="https://links.papareact.com/fdw"  alt=""/>
   <p className='text-xs text-gray-500 '>Free Next-day delivery</p>

@@ -28,7 +28,7 @@ function Product({ id, price, description, category, title , image , rating }) {
       <p className='absolute top-2 right-2 text-xs text-gray-400 italic'>{category}</p>
       <div className='relative h-52 w-40 object-contain mx-auto'>
       <Image 
-      src={image}  className="object-contain items-center mx-auto" fill loading='lazy'  alt=""/>
+      src={image}  className="object-contain items-center mx-auto" width={120}  height={100}  alt=""/>
       </div>
       <h4 className='my-3'>{title}</h4>
 

@@ -57,13 +57,13 @@ function Checkout() {
                     {items.length>1 && 
                     <div className='my-2'>
                     <p>Subtotal ({items.length} items) : </p>
-                    <CurrencyFormat className='font-bold' value ={total} prefix={'$'} decimalScale={2} displayType={"text"} />
+                    <CurrencyFormat className='font-bold' value ={total} prefix={'$'} decimalScale={2} />
                     </div>
                     }
 
 
                     <button disabled={!session}
-                    className= {`button mt-2 ${!session && "from-gray-700 to-gray-400 w-52  cursor-not-allowed text-white border-gray-500"} `}>
+                    className= {`button mt-2 ${!session && "from-gray-700 to-gray-400 w-52 p-2 cursor-not-allowed text-white border-gray-500"} `}>
                        {!session? "Sign in to Checkout":"Proceed to Checkout"} </button>
                 </div>
             </main>

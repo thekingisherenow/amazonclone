@@ -29,7 +29,7 @@ function Header() {
           <div className='flex md:hidden justify-end items-center text-white  ml-auto '>
             <div onClick={() => signIn('google', { callbackUrl: 'http://localhost:3000/' })}
               className='flex h-10 items-center cursor-pointer'>
-              <p className='text-sm ml-auto text-right'>{session ? `Hello,${session.user.name}`  : "Sign in"}</p>
+              <p className='text-sm'>{session ? <p>Hello,{session.user.name} </p> : <p>Sign in</p>}</p>
               <ChevronRightIcon className='w-2 h-3 mt-1' />
               <UserIcon className='w-7 h-7' />
             </div>

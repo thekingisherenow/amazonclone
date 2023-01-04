@@ -57,7 +57,7 @@ function Checkout() {
                     {items.length>1 && 
                     <div className='my-2'>
                     <p>Subtotal ({items.length} items) : </p>
-                    <CurrencyFormat className='font-bold' value ={total} prefix={'$'} decimalScale={2} displayType={"text"} />
+                    <CurrencyFormat className='font-bold' value ={total} prefix={'$'} decimalScale={2} />
                     </div>
                     }
 

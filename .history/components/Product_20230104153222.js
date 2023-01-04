@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/future/image'
 import React, { useEffect, useState } from 'react'
 import { StarIcon } from '@heroicons/react/24/solid'
 import { useDispatch } from 'react-redux';
@@ -26,9 +26,8 @@ function Product({ id, price, description, category, title , image , rating }) {
   return (
     <div className=' relative bg-white z-30 m-5 p-10 flex flex-col shadow-lg '>
       <p className='absolute top-2 right-2 text-xs text-gray-400 italic'>{category}</p>
-      <div className='relative h-52 w-40 object-contain mx-auto'>
-      <Image 
-      src={image}  className="object-contain items-center mx-auto" fill loading='lazy'  alt=""/>
+      <div className='relative h-52 w-40  mx-auto'>
+      <Image  src={image}  className="object-contain items-center mx-auto" width={120}  height={100}  alt=""/>
       </div>
       <h4 className='my-3'>{title}</h4>
 

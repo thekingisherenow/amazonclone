@@ -54,16 +54,16 @@ function Checkout() {
 
                 {/* right */}
                 <div className='flex flex-col bg-white p-4 shadow-md space-y-2'>
-                    {items.length>1 && 
-                    <div className='my-2'>
-                    <p>Subtotal ({items.length} items) : </p>
-                    <CurrencyFormat className='font-bold' value ={total} prefix={'$'} decimalScale={2} displayType={"text"} />
+                    {session && 
+                    <div >
+                    <p>Subtotal (2 items) : </p>
+                    <CurrencyFormat className='my-3' value ={total} prefix={'$'} />
                     </div>
                     }
 
 
                     <button disabled={!session}
-                    className= {`button mt-2 ${!session && "from-gray-700 to-gray-400 w-52  cursor-not-allowed text-white border-gray-500"} `}>
+                    className= {`button mt-2 ${!session && "from-gray-700 to-gray-400 w-52 cursor-not-allowed text-white border-gray-500"} `}>
                        {!session? "Sign in to Checkout":"Proceed to Checkout"} </button>
                 </div>
             </main>
